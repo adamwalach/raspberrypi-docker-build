@@ -18,7 +18,8 @@ if [ ! -f "$RASPBIAN_FILE" ]; then
 fi
 
 kpartx -v -a $RASPBIAN_IMAGE
-LDEVICE=/dev/mapper/loop0p2
+LOOP=loop0
+LDEVICE=/dev/mapper/${LOOP}p2
 
 mkdir -p ./rootfs
 mount $LDEVICE ./rootfs -o ro
